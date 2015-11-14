@@ -1,0 +1,44 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A1171867722DC26BF38FE7242C53A45B341B0CCB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B941ADA865CAA0DF8C4F191DD8FDA8DDE19F2388" : 0,
+    "6212371FF68CC7F6F709A6C633581D642B461CCE" : 0,
+    "A1171867722DC26BF38FE7242C53A45B341B0CCB" : 0,
+    "F59601D791DA7F56C7939D6C24712C320916028D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CFCECC49-8A3E-4283-8B13-86F48F9A945C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B941ADA865CAA0DF8C4F191DD8FDA8DDE19F2388" : "ParseTutorialPart3",
+    "6212371FF68CC7F6F709A6C633581D642B461CCE" : "ParseTutorial",
+    "A1171867722DC26BF38FE7242C53A45B341B0CCB" : "coffee-app\/",
+    "F59601D791DA7F56C7939D6C24712C320916028D" : "Bizzi-Body-ParseTutorialPart3-Complete-Solution"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ParseTutorial",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ParseTutorial.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Bizzi-Body\/Swift-Parse-Tutorial-Part-1.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6212371FF68CC7F6F709A6C633581D642B461CCE"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/github.com\/AndrewMarshall\/coffee-app.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A1171867722DC26BF38FE7242C53A45B341B0CCB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Bizzi-Body\/ParseTutorial-Part-3.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B941ADA865CAA0DF8C4F191DD8FDA8DDE19F2388"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Bizzi-Body\/Bizzi-Body-ParseTutorialPart3-Complete-Solution.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F59601D791DA7F56C7939D6C24712C320916028D"
+    }
+  ]
+}
