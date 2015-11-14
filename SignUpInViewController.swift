@@ -49,7 +49,7 @@ class SignUpInViewController: UIViewController {
 			(user: PFUser?, error: NSError?) -> Void in
 			if user != nil {
 				dispatch_async(dispatch_get_main_queue()) {
-					self.performSegueWithIdentifier("signInToNavigation", sender: self)
+					self.performSegueWithIdentifier("signInToNavigationTab", sender: self)
 				}
 			} else {
 				self.activityIndicator.stopAnimating()
@@ -100,7 +100,7 @@ class SignUpInViewController: UIViewController {
 			if error == nil {
 				
 				dispatch_async(dispatch_get_main_queue()) {
-					self.performSegueWithIdentifier("signInToNavigation", sender: self)
+					self.performSegueWithIdentifier("signInToNavigationTab", sender: self)
 				}
 				
 			} else {

@@ -31,6 +31,8 @@
 		3CE3B21F1A84CA9100FF6AD8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE3B21E1A84CA9100FF6AD8 /* DetailViewController.swift */; };
 		49A399771BF7C1B300C33821 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A399761BF7C1B300C33821 /* libsqlite3.tbd */; };
 		49A399791BF7C1BD00C33821 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A399781BF7C1BD00C33821 /* libz.tbd */; };
+		A32E62D51BF7E537002AC5C6 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E62D41BF7E537002AC5C6 /* UserViewController.swift */; };
+		A32E62D71BF7E785002AC5C6 /* LocateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E62D61BF7E785002AC5C6 /* LocateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		3CE3B21E1A84CA9100FF6AD8 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		49A399761BF7C1B300C33821 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		49A399781BF7C1BD00C33821 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		A32E62D41BF7E537002AC5C6 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = ../UserViewController.swift; sourceTree = "<group>"; };
+		A32E62D61BF7E785002AC5C6 /* LocateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,11 +137,13 @@
 		3CE3B1D41A82831700FF6AD8 /* ParseTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				A32E62D41BF7E537002AC5C6 /* UserViewController.swift */,
 				3CE3B1D71A82831700FF6AD8 /* AppDelegate.swift */,
 				3CE3B21E1A84CA9100FF6AD8 /* DetailViewController.swift */,
 				3CE3B21A1A839D8200FF6AD8 /* TableViewController.swift */,
 				3C7DA2A81A8A1162006BAF5D /* SignUpInViewController.swift */,
 				3CE3B1DB1A82831700FF6AD8 /* Main.storyboard */,
+				A32E62D61BF7E785002AC5C6 /* LocateViewController.swift */,
 				3CE3B1D51A82831700FF6AD8 /* Supporting Files */,
 			);
 			path = ParseTutorial;
@@ -298,7 +304,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A32E62D71BF7E785002AC5C6 /* LocateViewController.swift in Sources */,
 				3CE3B21F1A84CA9100FF6AD8 /* DetailViewController.swift in Sources */,
+				A32E62D51BF7E537002AC5C6 /* UserViewController.swift in Sources */,
 				3CE3B21B1A839D8200FF6AD8 /* TableViewController.swift in Sources */,
 				3CE3B1D81A82831700FF6AD8 /* AppDelegate.swift in Sources */,
 				3C7DA2A91A8A1162006BAF5D /* SignUpInViewController.swift in Sources */,
