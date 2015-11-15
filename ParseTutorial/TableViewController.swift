@@ -7,8 +7,13 @@
 //
 
 import UIKit
+class TableViewController: PFQueryTableViewController,CLLocationManagerDelegate {
+    
 
-class TableViewController: PFQueryTableViewController {
+    
+    var manager: OneShotLocationManager?
+    
+
 
 	// Sign the user out
 	@IBAction func signOut(sender: AnyObject) {
@@ -85,6 +90,47 @@ class TableViewController: PFQueryTableViewController {
 		
 		// Refresh the table to ensure any data changes are displayed
 		tableView.reloadData()
+        
+        super.viewDidAppear(animated)
+        
+        manager = OneShotLocationManager()
+        manager!.fetchWithCompletion {location, error in
+            // fetch location or an error
+            if let loc = location {
+                print("LATITUDE: ")
+                print(location?.coordinate.latitude)
+                print("LONGITUDE: ")
+                print(location?.coordinate.longitude)
+            } else if let err = error {
+                print(err.localizedDescription)
+            }
+            self.manager = nil
+        }
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
