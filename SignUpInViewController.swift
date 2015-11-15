@@ -98,7 +98,8 @@ class SignUpInViewController: UIViewController {
 		user.signUpInBackgroundWithBlock {
 			(succeeded: Bool, error: NSError?) -> Void in
 			if error == nil {
-				
+                // create user profile
+				self.createUserProfile(userEmailAddress!)
 				dispatch_async(dispatch_get_main_queue()) {
 					self.performSegueWithIdentifier("signInToNavigationTab", sender: self)
 				}
@@ -112,8 +113,60 @@ class SignUpInViewController: UIViewController {
 				}				
 			}
 		}
+        
 	}
 
+    func createUserProfile(userEmailAddress: String) {
+        
+        var brewDevices: [String: Bool] = [
+            "V60" : false,
+            "Chemex" :false,
+            "Aeropress" :false,
+            "MokaPot" : false,
+            "FrenchPress" : false,
+            "AutoDrip" : false,
+            "Espresso" : false,
+            "Coldbrew": false
+        ]
+        
+        var brewPrefs: [String: [String: Int]] = [
+            "temp" : [
+                "hot" : 0,
+                "iced" : 0,
+                "coldbrew" : 0
+            ],
+            "strength" : [
+                "strong" : 0,
+                "weak" : 0
+            ],
+            "roast" : [
+                "light" : 0,
+                "medium" : 0,
+                "dark" : 0
+            ],
+            "extras" : [
+                "dairy" : 0,
+                "mocha" : 0,
+                "vanilla" : 0,
+                "none" : 0
+            ]
+        ]
+        
+        
+        let profile = PFObject(className:"UserProfile")
+        profile["username"] = userEmailAddress
+        profile["brewPrefs"] = brewPrefs
+        profile["brewDevices"] = brewDevices
+        
+        profile.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                // The object has been saved.
+            } else {
+                // There was a problem, check error.description
+            }
+        }
+    }
 	
 	
 	/*
