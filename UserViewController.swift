@@ -12,10 +12,41 @@ class UserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        
+        
+        // ** LOAD USER PROFILE
+        // Load the users profile so that we can display their brew devices
+        let userEmail = PFUser.currentUser()!["username"] as? String
+        
+        let query = PFQuery(className:"UserProfile")
+        query.whereKey("username", equalTo:(userEmail)!)
+    
+        //query.findObjectsInBackgroundWithBlock {
+        query.getFirstObjectInBackgroundWithBlock {
+            (object, error) -> Void in
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved UserProfile object!")
+                // Do something with the found objects
+                if let object = object {
+                    var result = object["brewDevices"] as! Dictionary<String, Bool>
+                    // << POPULATE THE CHECKBOXES HERE >>
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
+        // ** END LOAD USER PROFILE
+        
+        
+        
+  
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
