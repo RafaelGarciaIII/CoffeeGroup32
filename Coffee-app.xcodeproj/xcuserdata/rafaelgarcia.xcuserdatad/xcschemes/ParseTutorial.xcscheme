@@ -17,7 +17,7 @@
                BlueprintIdentifier = "3CE3B1D11A82831700FF6AD8"
                BuildableName = "ParseTutorial.app"
                BlueprintName = "ParseTutorial"
-               ReferencedContainer = "container:ParseTutorial.xcodeproj">
+               ReferencedContainer = "container:Coffee-app.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "3CE3B1E61A82831700FF6AD8"
                BuildableName = "ParseTutorialTests.xctest"
                BlueprintName = "ParseTutorialTests"
-               ReferencedContainer = "container:ParseTutorial.xcodeproj">
+               ReferencedContainer = "container:Coffee-app.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "3CE3B1D11A82831700FF6AD8"
             BuildableName = "ParseTutorial.app"
             BlueprintName = "ParseTutorial"
-            ReferencedContainer = "container:ParseTutorial.xcodeproj">
+            ReferencedContainer = "container:Coffee-app.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -68,7 +68,7 @@
             BlueprintIdentifier = "3CE3B1D11A82831700FF6AD8"
             BuildableName = "ParseTutorial.app"
             BlueprintName = "ParseTutorial"
-            ReferencedContainer = "container:ParseTutorial.xcodeproj">
+            ReferencedContainer = "container:Coffee-app.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -91,7 +91,7 @@
             BlueprintIdentifier = "3CE3B1D11A82831700FF6AD8"
             BuildableName = "ParseTutorial.app"
             BlueprintName = "ParseTutorial"
-            ReferencedContainer = "container:ParseTutorial.xcodeproj">
+            ReferencedContainer = "container:Coffee-app.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

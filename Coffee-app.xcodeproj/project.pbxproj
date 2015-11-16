@@ -270,7 +270,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3CE3B1CD1A82831700FF6AD8 /* Build configuration list for PBXProject "ParseTutorial" */;
+			buildConfigurationList = 3CE3B1CD1A82831700FF6AD8 /* Build configuration list for PBXProject "Coffee-app" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -525,7 +525,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3CE3B1CD1A82831700FF6AD8 /* Build configuration list for PBXProject "ParseTutorial" */ = {
+		3CE3B1CD1A82831700FF6AD8 /* Build configuration list for PBXProject "Coffee-app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3CE3B1EF1A82831700FF6AD8 /* Debug */,
