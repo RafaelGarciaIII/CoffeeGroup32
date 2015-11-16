@@ -435,11 +435,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1DO-YM-RTn">
-                                <rect key="frame" x="61" y="264" width="157" height="30"/>
+                                <rect key="frame" x="61" y="384" width="157" height="30"/>
                                 <animations/>
                                 <state key="normal" title="View My brew devices "/>
                                 <connections>
                                     <segue destination="sVz-1b-KIf" kind="show" id="c55-zz-Rv9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nc-3M-Es7">
+                                <rect key="frame" x="61" y="431" width="168" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Configure home location"/>
+                                <connections>
+                                    <segue destination="hjk-kJ-T9P" kind="show" id="DqL-Bj-gFs"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="populate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMb-jv-kmh" userLabel="username">
@@ -463,14 +471,20 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nc-3M-Es7">
-                                <rect key="frame" x="61" y="340" width="168" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DaO-Xb-3kl">
+                                <rect key="frame" x="61" y="289" width="96" height="21"/>
                                 <animations/>
-                                <state key="normal" title="Configure home location"/>
-                                <connections>
-                                    <segue destination="hjk-kJ-T9P" kind="show" id="DqL-Bj-gFs"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TIME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2y-3E-Z9t" userLabel="time">
+                                <rect key="frame" x="64" y="318" width="182" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -485,6 +499,7 @@
                     <connections>
                         <outlet property="latLabel" destination="TPJ-aD-i9R" id="Cmu-xd-OWG"/>
                         <outlet property="lonLabel" destination="p5C-Fe-lUo" id="6BM-Nn-V5h"/>
+                        <outlet property="timeLabel" destination="r2y-3E-Z9t" id="GD7-rA-eID"/>
                         <outlet property="usernameLabel" destination="TMb-jv-kmh" id="5Cn-Qe-q84"/>
                     </connections>
                 </viewController>

@@ -15,8 +15,7 @@ class UserViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var latLabel: UILabel!
     @IBOutlet weak var lonLabel: UILabel!
-    
-    
+    @IBOutlet weak var timeLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -59,7 +58,15 @@ class UserViewController: UIViewController {
                     }
         // ** END LOAD USER PROFILE
         
+                    //time ?
+                    let date = NSDate()
+                    let formatter = NSDateFormatter()
+                    formatter.timeStyle = .ShortStyle
+                    self.timeLabel.text=formatter.stringFromDate(date)
+                    
+                    
         self.usernameLabel.text = userEmail;
+        
         
         
                 }}}
