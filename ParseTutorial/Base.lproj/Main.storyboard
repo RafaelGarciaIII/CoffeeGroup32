@@ -445,6 +445,9 @@
                                 <rect key="frame" x="195" y="341" width="168" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Configure home location"/>
+                                <connections>
+                                    <segue destination="hjk-kJ-T9P" kind="show" id="DqL-Bj-gFs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -601,7 +604,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFi-8i-0ld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1384" y="1592"/>
+            <point key="canvasLocation" x="2256" y="1048"/>
+        </scene>
+        <!--User Location View Controller-->
+        <scene sceneID="fWw-6b-x3G">
+            <objects>
+                <viewController id="hjk-kJ-T9P" customClass="UserLocationViewController" customModule="ParseTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ipD-hY-AHp"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Ny-vD-fBu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ovA-Dy-qxk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oyh-uf-sDh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2256" y="1721"/>
         </scene>
         <!--Locate View Controller-->
         <scene sceneID="avy-5o-GpM">
