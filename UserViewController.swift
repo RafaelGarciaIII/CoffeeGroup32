@@ -9,6 +9,8 @@
 import UIKit
 
 class UserViewController: UIViewController {
+    var manager:OneShotLocationManager?
+
 
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var latLabel: UILabel!
@@ -21,6 +23,9 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        let formatter = NSNumberFormatter();
+        formatter.minimumFractionDigits = 1;
+        formatter.maximumFractionDigits = 5;
         
         
         // ** LOAD USER PROFILE
@@ -38,20 +43,26 @@ class UserViewController: UIViewController {
                 print("Successfully retrieved UserProfile object!")
                 // Do something with the found objects
                 if let object = object {
-                    var result = object["brewDevices"] as! Dictionary<String, Bool>
-                    // << POPULATE THE CHECKBOXES HERE >>
-                }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!.userInfo)")
-            }
-        }
+                    self.manager = OneShotLocationManager()
+                    self.manager!.fetchWithCompletion {location, error in
+                        // fetch location or an error
+                        if let loc = location {
+                            
+                            
+                            self.latLabel.text = formatter.stringFromNumber((location?.coordinate.latitude)!);
+                            self.lonLabel.text = formatter.stringFromNumber((location?.coordinate.longitude)!);
+                            
+                        } else if let err = error {
+                            print(err.localizedDescription)
+                        }
+                        self.manager = nil
+                    }
         // ** END LOAD USER PROFILE
         
-        usernameLabel.text = userEmail;
+        self.usernameLabel.text = userEmail;
         
         
-  
+                }}}
     }
 
     
