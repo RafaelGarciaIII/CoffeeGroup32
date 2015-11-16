@@ -9,9 +9,13 @@
 import UIKit
 
 class LocateViewController: UIViewController {
+    
+    var manager:OneShotLocationManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
 
         // Do any additional setup after loading the view.
     }
@@ -20,15 +24,7 @@ class LocateViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func signOut(sender: AnyObject) {
-        
-        PFUser.logOut()
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("SignUpInViewController")
-        self.presentViewController(vc, animated: true, completion: nil)
-    }
+
 
     /*
     // MARK: - Navigation
