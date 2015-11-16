@@ -34,6 +34,7 @@
 		A32E62D51BF7E537002AC5C6 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E62D41BF7E537002AC5C6 /* UserViewController.swift */; };
 		A32E62D71BF7E785002AC5C6 /* LocateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E62D61BF7E785002AC5C6 /* LocateViewController.swift */; };
 		A32E62D91BF7EAAE002AC5C6 /* UserBrewDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E62D81BF7EAAE002AC5C6 /* UserBrewDevicesViewController.swift */; };
+		A3F877771BF952E200EF6E68 /* UserLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F877761BF952E200EF6E68 /* UserLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		A32E62D41BF7E537002AC5C6 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = ../UserViewController.swift; sourceTree = "<group>"; };
 		A32E62D61BF7E785002AC5C6 /* LocateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocateViewController.swift; sourceTree = "<group>"; };
 		A32E62D81BF7EAAE002AC5C6 /* UserBrewDevicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBrewDevicesViewController.swift; sourceTree = "<group>"; };
+		A3F877761BF952E200EF6E68 /* UserLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				3CE3B21A1A839D8200FF6AD8 /* TableViewController.swift */,
 				3C7DA2A81A8A1162006BAF5D /* SignUpInViewController.swift */,
 				3CE3B1DB1A82831700FF6AD8 /* Main.storyboard */,
+				A3F877761BF952E200EF6E68 /* UserLocationViewController.swift */,
 				A32E62D81BF7EAAE002AC5C6 /* UserBrewDevicesViewController.swift */,
 				A32E62D61BF7E785002AC5C6 /* LocateViewController.swift */,
 				3CE3B1D51A82831700FF6AD8 /* Supporting Files */,
@@ -311,6 +314,7 @@
 				3CE3B21F1A84CA9100FF6AD8 /* DetailViewController.swift in Sources */,
 				A32E62D51BF7E537002AC5C6 /* UserViewController.swift in Sources */,
 				3CE3B21B1A839D8200FF6AD8 /* TableViewController.swift in Sources */,
+				A3F877771BF952E200EF6E68 /* UserLocationViewController.swift in Sources */,
 				A32E62D91BF7EAAE002AC5C6 /* UserBrewDevicesViewController.swift in Sources */,
 				3CE3B1D81A82831700FF6AD8 /* AppDelegate.swift in Sources */,
 				3C7DA2A91A8A1162006BAF5D /* SignUpInViewController.swift in Sources */,
