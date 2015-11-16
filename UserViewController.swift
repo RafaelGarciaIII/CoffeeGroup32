@@ -10,6 +10,13 @@ import UIKit
 
 class UserViewController: UIViewController {
 
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var latLabel: UILabel!
+    @IBOutlet weak var lonLabel: UILabel!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -41,6 +48,7 @@ class UserViewController: UIViewController {
         }
         // ** END LOAD USER PROFILE
         
+        usernameLabel.text = userEmail;
         
         
   
