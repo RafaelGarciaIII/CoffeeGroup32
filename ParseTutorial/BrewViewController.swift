@@ -95,4 +95,13 @@ class BrewViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDat
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
     }
+    
+    @IBAction func signOut(sender: AnyObject) {
+        
+        PFUser.logOut()
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("SignUpInViewController")
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
 }

@@ -7,17 +7,28 @@
 //
 
 import UIKit
+import MapKit
 
 class LocateViewController: UIViewController {
     
+    @IBOutlet weak var mapView: MKMapView!
     var manager:OneShotLocationManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-
+        
+        
+        let initialLocation = CLLocation(latitude: 37.7836, longitude: -122.408)
+        centerMapOnLocation(initialLocation)
+        
         // Do any additional setup after loading the view.
+    }
+    
+    let regionRadius: CLLocationDistance = 1500
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+            regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,6 +36,15 @@ class LocateViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    @IBAction func signOut(sender: AnyObject) {
+        
+        PFUser.logOut()
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("SignUpInViewController")
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
