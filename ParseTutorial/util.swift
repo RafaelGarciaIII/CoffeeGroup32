@@ -118,6 +118,96 @@ func convertStringToDictionary(text: String) -> NSDictionary? {
     return nil
 }
 
+func getBrew(temp: Int, brewPrefs: [String: [String: Int]]) -> [String: String] {
+    let calendar = NSCalendar.currentCalendar()
+    let components = calendar.components(.Hour, fromDate: NSDate())
+    let hour = components.hour
+    
+    
+    var brew = getDefaultUserBrew(brewPrefs)
+    
+    let randRoast = ["light","medium","dark"][Int(arc4random_uniform(100))%3]
+    let randExtra = ["dairy","mocha","vanilla","none"][Int(arc4random_uniform(100))%4]
+    let randStrength = ["strong","weak"][Int(arc4random_uniform(100))%2]
+    let randTemp = ["hot","coldbrew","iced"][Int(arc4random_uniform(100))%3]
+    var adaptedBrewTemp = "hot"
+    var adaptedBrewStrength = "strong"
+    
+    
+    // set breTemp according to current weather
+    
+    
+    if (temp >= 60 && temp < 80) {
+        adaptedBrewTemp = "coldbrew"
+    } else if (temp >= 80) {
+        adaptedBrewTemp = "iced"
+    }
+    // set strength acording to time of day
+    if (hour >= 12) {
+        adaptedBrewStrength = "weak"
+    }
+    
+    // add contextual and random elements
+    if (Int(arc4random_uniform(100))%2 == 0){ // 1 out of 2 times we give them a random roast
+        brew["roast"] = randRoast
+    }
+    if (Int(arc4random_uniform(100))%2 == 0){ // 1 out of 2 times we give them a random extra
+        brew["extras"] = randExtra
+    }
+    if (Int(arc4random_uniform(100))%3 == 0){ // 1 out of 3 times we give them a random roast
+        brew["strength"] = randStrength
+    }
+    if (Int(arc4random_uniform(100))%3 == 0){ // 1 out of 3 times we give them a random extra
+        brew["temp"] = randTemp
+    }
+    if (Int(arc4random_uniform(100))%2 == 0){ // 1 out of 2 times we give them contextual strength
+        brew["strength"] = adaptedBrewStrength
+    }
+    if (Int(arc4random_uniform(100))%2 == 0){ // 1 out of 2 times we give them contextual temp
+        brew["temp"] = adaptedBrewTemp
+    }
+    
+    
+    return brew
+}
+
+
+
+// TODO: get the brew that has all of the users highest rated prefs.
+func getDefaultUserBrew(brewPrefs: [String: [String: Int]]) -> [String: String] {
+    var brew = [String: String]()
+    
+    var max = -99999999
+    for (key, value) in brewPrefs["roast"]! {
+        if (value > max) {
+            max = value
+            brew["roast"] = key
+        }
+    }
+    max = -99999999
+    for (key, value) in brewPrefs["extras"]! {
+        if (value > max) {
+            max = value
+            brew["extras"] = key
+        }
+    }
+    max = -99999999
+    for (key, value) in brewPrefs["temp"]! {
+        if (value > max) {
+            max = value
+            brew["temp"] = key
+        }
+    }
+    max = -99999999
+    for (key, value) in brewPrefs["strength"]! {
+        if (value > max) {
+            max = value
+            brew["strength"] = key
+        }
+    }
+    
+    return brew
+}
 
 
 

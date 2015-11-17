@@ -236,10 +236,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iox-dr-Tgv">
-                                <rect key="frame" x="82" y="77" width="300" height="112"/>
-                                <animations/>
-                            </pickerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MHq-bT-NrG" userLabel="strengthSelector">
                                 <rect key="frame" x="82" y="203" width="263" height="29"/>
                                 <animations/>
@@ -248,6 +244,23 @@
                                     <segment title="Strong"/>
                                 </segments>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hK6-0J-1j0" userLabel="deviceLabel">
+                                <rect key="frame" x="174" y="106" width="232" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTt-lA-OwZ">
+                                <rect key="frame" x="59" y="461" width="48" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Like"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qP-KO-FEc">
+                                <rect key="frame" x="200" y="461" width="55" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Dislike"/>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -260,8 +273,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="devicePicker" destination="Iox-dr-Tgv" id="1TR-hY-dfE"/>
+                        <outlet property="deviceLabel" destination="hK6-0J-1j0" id="TlK-1m-hFH"/>
+                        <outlet property="dislikeButton" destination="2qP-KO-FEc" id="qem-5j-OJT"/>
                         <outlet property="extraSelect" destination="Z96-h0-idx" id="tq3-fy-8aM"/>
+                        <outlet property="likeButton" destination="vTt-lA-OwZ" id="WfK-bF-U4P"/>
                         <outlet property="roastSelect" destination="QFR-dj-Zly" id="wm3-Z3-HyQ"/>
                         <outlet property="strengthSelect" destination="MHq-bT-NrG" id="DF1-wt-ijT"/>
                         <outlet property="tempSelect" destination="VtV-md-h14" id="F50-tW-enp"/>

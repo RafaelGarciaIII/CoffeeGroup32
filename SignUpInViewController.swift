@@ -119,7 +119,7 @@ class SignUpInViewController: UIViewController {
     func createUserProfile(userEmailAddress: String) {
         
         var brewDevices: [String: Bool] = [
-            "V60" : false,
+            "V60" : true,
             "Chemex" :false,
             "Aeropress" :false,
             "MokaPot" : false,

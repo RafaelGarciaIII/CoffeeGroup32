@@ -9,43 +9,54 @@
 import UIKit
 
 
-class BrewViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
+class BrewViewController: UIViewController{
     var manager:OneShotLocationManager?
-    @IBOutlet weak var devicePicker: UIPickerView!
     @IBOutlet weak var strengthSelect: UISegmentedControl!
     @IBOutlet weak var tempSelect: UISegmentedControl!
     @IBOutlet weak var roastSelect: UISegmentedControl!
     @IBOutlet weak var extraSelect: UISegmentedControl!
+    @IBOutlet weak var deviceLabel: UILabel!
+
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var dislikeButton: UIButton!
+    
+
     
          var pickerData: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getTemp({ (result) -> Void in
-            
-            print(result)
-            
-        })
+        setNewBrewData()
+
         
-        getCity({ (result) -> Void in
-            
-            print(result)
-            
-        })
+    }
+    
+    
+    @IBAction func signOut(sender: AnyObject) {
+
+        
+        PFUser.logOut()
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("SignUpInViewController")
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    
+    func deviceFunction(device:String)
+    {
+        dispatch_async(dispatch_get_main_queue(),{
+            self.deviceLabel.text=device;})
+    }
+    // TODO: Hook this function up with the gui elements
+    func setNewBrewData(){
+        
         
         
         let userEmail = PFUser.currentUser()!["username"] as? String
-        
         let query = PFQuery(className:"UserProfile")
         query.whereKey("username", equalTo:(userEmail)!)
-        
-   
-        self.devicePicker.delegate = self
-        self.devicePicker.dataSource = self
-        self.pickerData += ["this should show"]
-        self.pickerData += ["this should show three"]
-        
         //query.findObjectsInBackgroundWithBlock {
         query.getFirstObjectInBackgroundWithBlock {
             (object, error) -> Void in
@@ -54,15 +65,83 @@ class BrewViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDat
                 print("Successfully retrieved UserProfile object!")
                 // Do something with the found objects
                 if let object = object {
-                    var brewDevices = object["brewDevices"] as! Dictionary<String, Bool>
-                    if(brewDevices["V60"] == false){}
-                    else{
-                        self.pickerData += ["V60"];
-                        print("Was here");
-                    }
-                    self.pickerData += ["fucl"]
+                    var brewDevices = object["brewDevices"] as! [String: Bool]
                     
-                    // << POPULATE THE CHECKBOXES HERE >>
+                    
+                    
+                    // pick random brew device
+                    var devices = [String]()
+                    for (key, value) in brewDevices {
+                        if (value) {
+                            devices.append(key)
+                        }
+                    }
+                    var device = devices[Int(arc4random_uniform(UInt32(devices.count)))]
+                    
+                    var brewPrefs = object["brewPrefs"] as! [String: [String: Int]]
+                    getTemp({ (result) -> Void in
+                        var brew = getBrew(result, brewPrefs: brewPrefs)
+                        brew["device"] = device
+                        print(brew)
+                        // << POPULATE THE BREW ELEMENTS HERE >>
+                        //temp
+                        if(brew["temp"] == "hot")
+                        {
+                            self.tempSelect.selectedSegmentIndex = 0;
+                        }
+                        else if(brew["temp"] == "iced")
+                        {
+                            self.tempSelect.selectedSegmentIndex=1;
+                        }
+                        else if(brew["temp"] == "coldbrew")
+                        {
+                            self.tempSelect.selectedSegmentIndex=2;
+                        }
+                        //extras
+                        if(brew["extras"] == "none")
+                        {
+                            self.extraSelect.selectedSegmentIndex = 0;
+                        }
+                        else if(brew["extras"] == "dairy")
+                        {
+                            self.extraSelect.selectedSegmentIndex = 1;
+                        }
+                        else if(brew["extras"] == "mocha")
+                        {
+                            self.extraSelect.selectedSegmentIndex = 2;
+                        }
+                        else if(brew["extras"] == "vanilla")
+                        {
+                            self.extraSelect.selectedSegmentIndex = 3;
+                        }
+                        //Strength
+                        if(brew["strength"] == "weak")
+                        {
+                            self.strengthSelect.selectedSegmentIndex = 0;
+                        }
+                        else if(brew["strength"] == "strong")
+                        {
+                            self.strengthSelect.selectedSegmentIndex = 1;
+                        }
+                        //device
+                        
+                        self.deviceFunction(brew["device"] as String!)
+                        
+                        //roast 
+                        if(brew["roast"] == "light")
+                        {
+                            self.roastSelect.selectedSegmentIndex = 0;
+                        }
+                        else if(brew["roast"] == "medium")
+                        {
+                            self.roastSelect.selectedSegmentIndex = 1;
+                        }
+                        else if(brew["roast"] == "dark")
+                        {
+                            self.roastSelect.selectedSegmentIndex = 2;
+                        }
+                        
+                    })
                 }
             } else {
                 // Log details of the failure
@@ -70,38 +149,5 @@ class BrewViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDat
             }
         }
         
-        self.pickerData += ["useless"]
-
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    // The number of columns of data
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    // The number of rows of data
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    
-    @IBAction func signOut(sender: AnyObject) {
-        
-        PFUser.logOut()
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("SignUpInViewController")
-        self.presentViewController(vc, animated: true, completion: nil)
     }
 }
