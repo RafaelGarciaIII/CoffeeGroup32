@@ -27,11 +27,11 @@
 		3CE3B20C1A82BE9E00FF6AD8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE3B20B1A82BE9E00FF6AD8 /* Security.framework */; };
 		3CE3B20E1A82BEA700FF6AD8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE3B20D1A82BEA700FF6AD8 /* StoreKit.framework */; };
 		3CE3B2101A82BEAF00FF6AD8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE3B20F1A82BEAF00FF6AD8 /* SystemConfiguration.framework */; };
-		3CE3B21B1A839D8200FF6AD8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE3B21A1A839D8200FF6AD8 /* TableViewController.swift */; };
-		3CE3B21F1A84CA9100FF6AD8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE3B21E1A84CA9100FF6AD8 /* DetailViewController.swift */; };
 		495B06DE1BF947E100A09FF0 /* OneShotLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B06DD1BF947E100A09FF0 /* OneShotLocationManager.swift */; };
 		49A399771BF7C1B300C33821 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A399761BF7C1B300C33821 /* libsqlite3.tbd */; };
 		49A399791BF7C1BD00C33821 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A399781BF7C1BD00C33821 /* libz.tbd */; };
+		A30F48C11BFAAE1800C48011 /* BrewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F48C01BFAAE1800C48011 /* BrewViewController.swift */; };
+		A30F48C31BFAAE2000C48011 /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F48C21BFAAE2000C48011 /* util.swift */; };
 		A32E62D51BF7E537002AC5C6 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E62D41BF7E537002AC5C6 /* UserViewController.swift */; };
 		A32E62D71BF7E785002AC5C6 /* LocateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E62D61BF7E785002AC5C6 /* LocateViewController.swift */; };
 		A32E62D91BF7EAAE002AC5C6 /* UserBrewDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32E62D81BF7EAAE002AC5C6 /* UserBrewDevicesViewController.swift */; };
@@ -76,11 +76,11 @@
 		3CE3B20F1A82BEAF00FF6AD8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3CE3B2111A82BEBF00FF6AD8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		3CE3B2131A82BEC700FF6AD8 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		3CE3B21A1A839D8200FF6AD8 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		3CE3B21E1A84CA9100FF6AD8 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		495B06DD1BF947E100A09FF0 /* OneShotLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneShotLocationManager.swift; sourceTree = "<group>"; };
 		49A399761BF7C1B300C33821 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		49A399781BF7C1BD00C33821 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		A30F48C01BFAAE1800C48011 /* BrewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrewViewController.swift; sourceTree = "<group>"; };
+		A30F48C21BFAAE2000C48011 /* util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
 		A32E62D41BF7E537002AC5C6 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = ../UserViewController.swift; sourceTree = "<group>"; };
 		A32E62D61BF7E785002AC5C6 /* LocateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocateViewController.swift; sourceTree = "<group>"; };
 		A32E62D81BF7EAAE002AC5C6 /* UserBrewDevicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBrewDevicesViewController.swift; sourceTree = "<group>"; };
@@ -144,10 +144,10 @@
 			isa = PBXGroup;
 			children = (
 				495B06DD1BF947E100A09FF0 /* OneShotLocationManager.swift */,
+				A30F48C01BFAAE1800C48011 /* BrewViewController.swift */,
 				A32E62D41BF7E537002AC5C6 /* UserViewController.swift */,
 				3CE3B1D71A82831700FF6AD8 /* AppDelegate.swift */,
-				3CE3B21E1A84CA9100FF6AD8 /* DetailViewController.swift */,
-				3CE3B21A1A839D8200FF6AD8 /* TableViewController.swift */,
+				A30F48C21BFAAE2000C48011 /* util.swift */,
 				3C7DA2A81A8A1162006BAF5D /* SignUpInViewController.swift */,
 				3CE3B1DB1A82831700FF6AD8 /* Main.storyboard */,
 				A3F877761BF952E200EF6E68 /* UserLocationViewController.swift */,
@@ -315,10 +315,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A32E62D71BF7E785002AC5C6 /* LocateViewController.swift in Sources */,
-				3CE3B21F1A84CA9100FF6AD8 /* DetailViewController.swift in Sources */,
 				A32E62D51BF7E537002AC5C6 /* UserViewController.swift in Sources */,
+				A30F48C11BFAAE1800C48011 /* BrewViewController.swift in Sources */,
+				A30F48C31BFAAE2000C48011 /* util.swift in Sources */,
 				495B06DE1BF947E100A09FF0 /* OneShotLocationManager.swift in Sources */,
-				3CE3B21B1A839D8200FF6AD8 /* TableViewController.swift in Sources */,
 				A3F877771BF952E200EF6E68 /* UserLocationViewController.swift in Sources */,
 				A32E62D91BF7EAAE002AC5C6 /* UserBrewDevicesViewController.swift in Sources */,
 				3CE3B1D81A82831700FF6AD8 /* AppDelegate.swift in Sources */,
