@@ -152,11 +152,18 @@ class SignUpInViewController: UIViewController {
             ]
         ]
         
+        var location: [String: Double] = [
+            "lat" : (37.7836),
+            "lon" : (-122.408)
+        ]
+        
+        
         
         let profile = PFObject(className:"UserProfile")
         profile["username"] = userEmailAddress
         profile["brewPrefs"] = brewPrefs
         profile["brewDevices"] = brewDevices
+        profile["homeLocation"] = location
         
         profile.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in

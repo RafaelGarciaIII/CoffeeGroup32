@@ -32,6 +32,135 @@ class BrewViewController: UIViewController{
         
     }
     
+    @IBAction func likeClick(sender: AnyObject) {
+        var brew = [String:String]()
+        
+        //roast
+        if(self.roastSelect.selectedSegmentIndex == 0)
+        {
+            brew["roast"] = "light";
+        }
+        else if(self.roastSelect.selectedSegmentIndex == 1)
+        {
+            brew["roast"] = "medium";
+        }
+        else if(self.roastSelect.selectedSegmentIndex == 2)
+        {
+            brew["roast"] = "dark";
+        }
+        
+        //strength
+        if(self.strengthSelect.selectedSegmentIndex == 0)
+        {
+            brew["strength"] = "weak";
+        }
+        else if(self.strengthSelect.selectedSegmentIndex == 1)
+        {
+            brew["strength"] = "strong";
+        }
+        
+        //temp
+        if(self.tempSelect.selectedSegmentIndex == 0)
+        {
+            brew["temp"] = "hot";
+        }
+        else if(self.tempSelect.selectedSegmentIndex == 1)
+        {
+            brew["temp"] = "iced";
+        }
+        else if(self.tempSelect.selectedSegmentIndex == 2)
+        {
+            brew["temp"] = "coldbrew";
+        }
+        
+        //extras
+        if(self.extraSelect.selectedSegmentIndex == 0)
+        {
+            brew["extras"] = "none";
+        }
+        else if(self.extraSelect.selectedSegmentIndex == 1)
+        {
+            brew["extras"] = "dairy";
+        }
+        else if(self.extraSelect.selectedSegmentIndex == 2)
+        {
+            brew["extras"] = "mocha";
+        }
+        else if(self.extraSelect.selectedSegmentIndex == 3)
+        {
+            brew["extras"] = "vanilla";
+        }
+        
+        saveBrewDataLike(brew)
+   
+        
+    }
+    
+    @IBAction func dislikeClick(sender: AnyObject) {
+        var brew = [String:String]()
+        
+        //roast
+        if(self.roastSelect.selectedSegmentIndex == 0)
+        {
+            brew["roast"] = "light";
+        }
+        else if(self.roastSelect.selectedSegmentIndex == 1)
+        {
+            brew["roast"] = "medium";
+        }
+        else if(self.roastSelect.selectedSegmentIndex == 2)
+        {
+            brew["roast"] = "dark";
+        }
+        
+        //strength
+        if(self.strengthSelect.selectedSegmentIndex == 0)
+        {
+            brew["strength"] = "weak";
+        }
+        else if(self.strengthSelect.selectedSegmentIndex == 1)
+        {
+            brew["strength"] = "strong";
+        }
+        
+        //temp
+        if(self.tempSelect.selectedSegmentIndex == 0)
+        {
+            brew["temp"] = "hot";
+        }
+        else if(self.tempSelect.selectedSegmentIndex == 1)
+        {
+            brew["temp"] = "iced";
+        }
+        else if(self.tempSelect.selectedSegmentIndex == 2)
+        {
+            brew["temp"] = "coldbrew";
+        }
+        
+        //extras
+        if(self.extraSelect.selectedSegmentIndex == 0)
+        {
+            brew["extras"] = "none";
+        }
+        else if(self.extraSelect.selectedSegmentIndex == 1)
+        {
+            brew["extras"] = "dairy";
+        }
+        else if(self.extraSelect.selectedSegmentIndex == 2)
+        {
+            brew["extras"] = "mocha";
+        }
+        else if(self.extraSelect.selectedSegmentIndex == 3)
+        {
+            brew["extras"] = "vanilla";
+        }
+        
+        print(brew)
+        
+        saveBrewDataDislike(brew)
+    }
+    
+    
     
     @IBAction func signOut(sender: AnyObject) {
 
@@ -67,8 +196,6 @@ class BrewViewController: UIViewController{
                 // Do something with the found objects
                 if let object = object {
                     var brewDevices = object["brewDevices"] as! [String: Bool]
-                    
-                    
                     
                     // pick random brew device
                     var devices = [String]()
@@ -149,6 +276,141 @@ class BrewViewController: UIViewController{
                 print("Error: \(error!) \(error!.userInfo)")
             }
         }
+        
+    }
+    
+    
+    func saveBrewDataLike(brew: [String: String]) {
+        
+        
+        
+        let userEmail = PFUser.currentUser()!["username"] as? String
+        
+        let query = PFQuery(className:"UserProfile")
+        
+        query.whereKey("username", equalTo:(userEmail)!)
+        
+        //query.findObjectsInBackgroundWithBlock {
+        
+        query.getFirstObjectInBackgroundWithBlock {
+            
+            (object, error) -> Void in
+            
+            if error == nil {
+                
+                // The find succeeded.
+                
+                print("Successfully retrieved UserProfile object!")
+                
+                // Do something with the found objects
+                
+                if let object = object {
+                    
+                    
+                    
+                    var brewPrefs = object["brewPrefs"] as! [String: [String: Int]]
+                    
+                    
+                    
+                    brewPrefs["roast"]![brew["roast"]!]!++
+                    
+                    brewPrefs["strength"]![brew["strength"]!]!++
+                    
+                    brewPrefs["extras"]![brew["extras"]!]!++
+                    
+                    brewPrefs["temp"]![brew["temp"]!]!++
+                    
+                    
+                    
+                    object["brewPrefs"] = brewPrefs
+                    
+                    
+                    
+                    object.saveInBackground();
+                    
+                }
+                
+            } else {
+                
+                // Log details of the failure
+                
+                print("Error: \(error!) \(error!.userInfo)")
+                
+            }
+            
+        }
+        
+        
+        
+        setNewBrewData()
+        
+    }
+    
+    
+    
+    func saveBrewDataDislike(brew: [String: String]) {
+        
+        
+        
+        let userEmail = PFUser.currentUser()!["username"] as? String
+        
+        let query = PFQuery(className:"UserProfile")
+        
+        query.whereKey("username", equalTo:(userEmail)!)
+        
+        //query.findObjectsInBackgroundWithBlock {
+        
+        query.getFirstObjectInBackgroundWithBlock {
+            
+            (object, error) -> Void in
+            
+            if error == nil {
+                
+                // The find succeeded.
+                
+                print("Successfully retrieved UserProfile object!")
+                
+                // Do something with the found objects
+                
+                if let object = object {
+                    
+                    
+                    
+                    var brewPrefs = object["brewPrefs"] as! [String: [String: Int]]
+                    
+                    
+                    
+                    brewPrefs["roast"]![brew["roast"]!]!--
+                    
+                    brewPrefs["strength"]![brew["strength"]!]!--
+                    
+                    brewPrefs["extras"]![brew["extras"]!]!--
+                    
+                    brewPrefs["temp"]![brew["temp"]!]!--
+                    
+                    
+                    
+                    object["brewPrefs"] = brewPrefs
+                    
+                    
+                    
+                    object.saveInBackground();
+                    
+                }
+                
+            } else {
+                
+                // Log details of the failure
+                
+                print("Error: \(error!) \(error!.userInfo)")
+                
+            }
+            
+        }
+        
+        
+        
+        setNewBrewData()
         
     }
 }

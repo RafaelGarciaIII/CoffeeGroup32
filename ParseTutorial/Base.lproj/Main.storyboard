@@ -255,11 +255,17 @@
                                 <rect key="frame" x="59" y="461" width="48" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Like"/>
+                                <connections>
+                                    <action selector="likeClick:" destination="eZW-uF-9eC" eventType="touchUpInside" id="fbQ-uV-y8K"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qP-KO-FEc">
                                 <rect key="frame" x="200" y="461" width="55" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Dislike"/>
+                                <connections>
+                                    <action selector="dislikeClick:" destination="eZW-uF-9eC" eventType="touchUpInside" id="Vjg-pC-jZ7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -314,7 +320,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1DO-YM-RTn">
-                                <rect key="frame" x="61" y="384" width="157" height="30"/>
+                                <rect key="frame" x="61" y="437" width="157" height="30"/>
                                 <animations/>
                                 <state key="normal" title="View My brew devices "/>
                                 <connections>
@@ -322,7 +328,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nc-3M-Es7">
-                                <rect key="frame" x="61" y="431" width="168" height="30"/>
+                                <rect key="frame" x="61" y="475" width="168" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Configure home location"/>
                                 <connections>
@@ -351,27 +357,48 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DaO-Xb-3kl">
-                                <rect key="frame" x="61" y="289" width="96" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2y-3E-Z9t" userLabel="time">
-                                <rect key="frame" x="64" y="318" width="182" height="21"/>
+                                <rect key="frame" x="57" y="329" width="96" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPz-cd-Dr4">
-                                <rect key="frame" x="58" y="477" width="53" height="30"/>
+                                <rect key="frame" x="57" y="513" width="53" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Refresh"/>
                                 <connections>
                                     <action selector="refresh:" destination="Pd2-Ns-iQF" eventType="touchUpInside" id="G4B-17-n9O"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqg-rH-IUP">
+                                <rect key="frame" x="57" y="380" width="43" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvS-T7-aKl">
+                                <rect key="frame" x="124" y="380" width="126" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhS-aB-fv3">
+                                <rect key="frame" x="62" y="258" width="184" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2y-3E-Z9t" userLabel="time">
+                                <rect key="frame" x="57" y="351" width="182" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -384,8 +411,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cityLabel" destination="lhS-aB-fv3" id="keK-Pw-JxT"/>
                         <outlet property="latLabel" destination="TPJ-aD-i9R" id="Cmu-xd-OWG"/>
                         <outlet property="lonLabel" destination="p5C-Fe-lUo" id="6BM-Nn-V5h"/>
+                        <outlet property="tempLabel" destination="KvS-T7-aKl" id="1ux-KK-QkT"/>
                         <outlet property="timeLabel" destination="r2y-3E-Z9t" id="GD7-rA-eID"/>
                         <outlet property="usernameLabel" destination="TMb-jv-kmh" id="5Cn-Qe-q84"/>
                     </connections>

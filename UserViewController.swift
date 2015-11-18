@@ -16,6 +16,8 @@ class UserViewController: UIViewController {
     @IBOutlet weak var latLabel: UILabel!
     @IBOutlet weak var lonLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
     
     @IBAction func refresh(sender: AnyObject) {
         self.viewDidLoad();
@@ -28,6 +30,7 @@ class UserViewController: UIViewController {
         let formatter = NSNumberFormatter();
         formatter.minimumFractionDigits = 1;
         formatter.maximumFractionDigits = 5;
+        
         
         
         // ** LOAD USER PROFILE
@@ -51,8 +54,8 @@ class UserViewController: UIViewController {
                     self.latLabel.text = formatter.stringFromNumber(locationHolder["lat"]!)
                     self.lonLabel.text = formatter.stringFromNumber(locationHolder["lon"]!)
                     
-                    
-                    
+
+                    self.setTemp();
                     
                     
                     //time ?
@@ -71,6 +74,19 @@ class UserViewController: UIViewController {
                 }}}
     }
 
+    func setTemp()
+    {
+        let formatter = NSNumberFormatter();
+        formatter.minimumFractionDigits = 1;
+        formatter.maximumFractionDigits = 5;
+        
+        getTemp({ (result) -> Void in
+            self.tempLabel.text = formatter.stringFromNumber(result);})
+            
+            getCity({ (result) -> Void in
+                self.cityLabel.text = result;
+        })
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
