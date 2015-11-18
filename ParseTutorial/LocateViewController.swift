@@ -17,9 +17,24 @@ class LocateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var initialLocation = CLLocation(latitude: 37.7836, longitude: -122.408)
+        manager = OneShotLocationManager()
+        manager!.fetchWithCompletion {location, error in
+            
+            // fetch location or an error
+            if let loc = location {
+                initialLocation = CLLocation(latitude:(location?.coordinate.latitude)!, longitude:  (location?.coordinate.longitude)!)
+                self.centerMapOnLocation(initialLocation);
+            } else if let err = error {
+                
+            }
+            self.manager = nil
+        }
         
-        let initialLocation = CLLocation(latitude: 37.7836, longitude: -122.408)
-        centerMapOnLocation(initialLocation)
+        
+        
+        
+        //centerMapOnLocation(initialLocation)
         
         // Do any additional setup after loading the view.
     }

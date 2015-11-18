@@ -13,8 +13,15 @@ class UserLocationViewController: UIViewController {
            var manager:OneShotLocationManager?
     @IBOutlet weak var LAT: UILabel!
     @IBOutlet weak var LON: UILabel!
+    @IBOutlet weak var homeLat: UILabel!
+    @IBOutlet weak var homeLon: UILabel!
 
     @IBAction func saveLocation(sender: AnyObject) {
+        
+        let formatter = NSNumberFormatter();
+        formatter.minimumFractionDigits = 1;
+        formatter.maximumFractionDigits = 5;
+        
         let userEmail = PFUser.currentUser()!["username"] as? String
         
         let query = PFQuery(className:"UserProfile")
@@ -26,20 +33,29 @@ class UserLocationViewController: UIViewController {
             if error == nil {
                 // The find succeeded.
                 print("Successfully retrieved UserProfile object!")
+                
                 // Do something with the found objects
                 if let object = object {
+                    
+                    
                     self.manager = OneShotLocationManager()
                     self.manager!.fetchWithCompletion {location, error in
                         // fetch location or an error
                         if let loc = location {
-                            self.LAT.text = location?.coordinate.latitude.description;
-                            self.LON.text = location?.coordinate.longitude.description;
+                            self.LAT.text = formatter.stringFromNumber((location?.coordinate.latitude)!)
+                            self.LON.text = formatter.stringFromNumber((location?.coordinate.longitude)!)
+                            //sets home when pressed
+                            self.homeLat.text = formatter.stringFromNumber((location?.coordinate.latitude)!)
+                            self.homeLon.text = formatter.stringFromNumber((location?.coordinate.longitude)!)
+                            
                             var location: [String: Double] = [
                                 "lat" : (location?.coordinate.latitude)!,
                                 "lon" : (location?.coordinate.longitude)!
                             ]
+                            
                             object["homeLocation"] = location;
                             object.saveInBackground();
+                            print("saved loc");
                             
                         } else if let err = error {
                             print(err.localizedDescription)
@@ -62,6 +78,10 @@ class UserLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let formatter = NSNumberFormatter();
+        formatter.minimumFractionDigits = 1;
+        formatter.maximumFractionDigits = 5;
+        
             let userEmail = PFUser.currentUser()!["username"] as? String
             
             let query = PFQuery(className:"UserProfile")
@@ -75,21 +95,18 @@ class UserLocationViewController: UIViewController {
                     print("Successfully retrieved UserProfile object!")
                     // Do something with the found objects
                     if let object = object {
+                        
                         self.manager = OneShotLocationManager()
                         self.manager!.fetchWithCompletion {location, error in
                             // fetch location or an error
                             if let loc = location {
-                                //object["homeLocation"] = location?.coordinate as! AnyObject;
-                               // self.LAT.text = location?.coordinate.latitude.description;
-                               // self.LON.text = location?.coordinate.longitude.description;
-                                
-                            } else if let err = error {
-                                print(err.localizedDescription)
-                            }
-                            self.manager = nil
-                        }
-                        
-                        
+                                self.LAT.text = formatter.stringFromNumber((location?.coordinate.latitude)!)
+                                self.LON.text = formatter.stringFromNumber((location?.coordinate.longitude)!)
+
+                        var locationHolder = object["homeLocation"] as! Dictionary<String, Double>
+                        self.homeLat.text = formatter.stringFromNumber(locationHolder["lat"]!)
+                        self.homeLon.text = formatter.stringFromNumber(locationHolder["lon"]!)
+                            }}
                         // << POPULATE THE CHECKBOXES HERE >>
                     }
                 } else {

@@ -47,7 +47,8 @@ class BrewViewController: UIViewController{
     func deviceFunction(device:String)
     {
         dispatch_async(dispatch_get_main_queue(),{
-            self.deviceLabel.text=device;})
+            self.deviceLabel.text=device})
+        print("reached");
     }
     // TODO: Hook this function up with the gui elements
     func setNewBrewData(){
